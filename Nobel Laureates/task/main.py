@@ -80,16 +80,9 @@ def generate_bar_plot(df):
     df['category'] = np.where(df["category"] == "", None, df["category"])
     df = df.dropna(subset=['category'])
 
-    plt.figure(figsize=(10, 10))
-
-    # print(df.head())
-
     categories = df['category'].value_counts().sort_index().index
-    # print(categories)
-    # df = df.groupby(df['gender'])
     height_male = (df['category'][df['gender'] == 'male']).value_counts().sort_index()
     height_female = (df['category'][df['gender'] == 'female']).value_counts().sort_index()
-    # print(height_male)
 
     x_axis = np.arange(len(categories))
 
